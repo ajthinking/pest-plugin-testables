@@ -1,9 +1,19 @@
-This repository contains the Pest Plugin Template.
+### Usage
 
-> If you want to start testing your application with Pest, visit the main **[Pest Repository](https://github.com/pestphp/pest)**.
+```php
+test('it ignores excessive substraction', function() {
+	testable(Inventory::class)
+		->setCount(1)
+		->substract(10)
+		->getCount()->assertEquals(0)
+		->add(2)
+		->getCount()->assertEquals(2)
+});
+```
+### How it works:
 
-- Explore the docs: **[pestphp.com/docs/plugins/creating-plugins »](https://pestphp.com/docs/plugins/creating-plugins)**
-- Follow us on Twitter: **[@pestphp »](https://twitter.com/pestphp)**
-- Join us on the Discord Server: **[discord.gg/bMAJv82 »](https://discord.gg/bMAJv82)**
-
-Pest was created by **[Nuno Maduro](https://twitter.com/enunomaduro)** under the **[Sponsorware license](https://github.com/sponsorware/docs)**. It got open-sourced and is now licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.
+* Provide `testable` with an instance or a resolvable classname.
+* Make preparatory calls as needed.
+* Reach for the property or method you want to assert against.
+* State the assertion. It will target the most recent operation.
+* After an assertion, it will return to the state before the assertion target, making it possible to chain more assertions.
