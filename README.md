@@ -2,12 +2,12 @@
 
 ```php
 test('it ignores excessive substraction', function() {
-	testable(Inventory::class)
-		->setCount(1)
-		->substract(10)
-		->getCount()->assertEquals(0)
-		->add(2)
-		->getCount()->assertEquals(2)
+  testable(Inventory::class)
+  ->setCount(1)
+  ->substract(10)
+  ->getCount()->assertEquals(0)
+  ->add(2)
+  ->getCount()->assertEquals(2)
 });
 ```
 ### How it works:
