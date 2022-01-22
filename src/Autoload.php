@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Pest\PluginName;
+namespace Ajthinking\PestPluginTestables;
 
-use Pest\Plugin;
-use PHPUnit\Framework\TestCase;
+use Exception;
 
-Plugin::uses(Example::class);
-
-/**
- * @return TestCase
- */
-function example(string $argument)
+function testable(mixed $testee): Testable
 {
-    return test()->example(...func_get_args());
+	if(is_string($testee)) {
+		try {
+			// If we are in a Laravel context attempt resolving
+			$testee = call_user_func('app')->make($testee);
+		} catch(Exception $_) {}
+	}
+
+    return new Testable($testee);
 }

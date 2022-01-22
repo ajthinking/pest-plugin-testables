@@ -1,6 +1,6 @@
 {
-    "name": "pestphp/pest-plugin-template",
-    "description": "My awesome plugin",
+    "name": "ajthinking/pest-plugin-testables",
+    "description": "Easily test Builders",
     "keywords": [
         "php",
         "framework",
